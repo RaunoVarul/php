@@ -5,7 +5,10 @@
  * Date: 1/18/2017
  * Time: 8:58
  */
-
+// useful function
+function fizHtml($val){
+    return htmlentities($val);
+}//fix Html
 class http
 {// http begin
     //class variables
@@ -38,4 +41,17 @@ class http
     function set($name, $val){
         $this->vars[$name] = $val;
     }// set
-}
+    //get element_value according to the element_name
+    function get($name, $fix = true){
+        //if element with such name exists
+        if(isset($this->vars[$name])){
+            if($fix){
+                return fixHtml($this->vars[$name]);
+            }
+            return $this->vars[$name];
+        }
+        //if element with such name is not exist
+        return false;
+    }//get
+}//http end
+?>
