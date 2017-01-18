@@ -22,6 +22,7 @@ class linkobject extends http
         $this ->baseUrl = $this->protocol.HTTP_HOST.SCRIPT_NAME;
     }//constructor
     // create http data pairs and merge them
+    //merge is realised by $link
     function addToLink($link, $name, $val){
         //if link is not empty - pair is created
         if ($link != ''){
@@ -29,7 +30,7 @@ class linkobject extends http
         }
         //create pair: element_name = element_value
         $link = $link.fixUrl($name).$this->eq.fixUrl($val);
-        echo $link;
-    }
+        echo $link.'<br />';
+    }//addToLink end
 }//class end
 ?>
