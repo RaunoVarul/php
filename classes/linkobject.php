@@ -23,6 +23,11 @@ class linkobject extends http
     }//constructor
     // create http data pairs and merge them
     function addToLink($link, $name, $val){
+        //if link is not empty - pair is created
+        if ($link != ''){
+            $link.=$this->delim; //$link = $link.$this->delim;
+        }
+        //create pair: element_name = element_value
         $link = $link.fixUrl($name).$this->eq.fixUrl($val);
         echo $link;
     }

@@ -61,4 +61,7 @@ $linkobject = new linkobject();
 echo '<pre>';
 print_r($linkobject);
 echo '</pre>';
+$link = ''; //empty link for data pairs
+$http->addToLink($link, 'kasutaja', 'rauno');
+$http->addToLink($link, 'parool', 'qwerty');
 ?>
