@@ -71,4 +71,5 @@ $link = $http->getLink(array('kasutaja'=>'anna', 'parool'=>'qwerty'));
 // control actions
 // import act file
 require_once 'act.php';
+
 ?>
