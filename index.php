@@ -32,8 +32,10 @@ echo '</pre>';
 echo $tmpl->parse();
 // import http class
 require_once CLASSES_DIR.'http.php';
-// create and output http object
-$http = new http();
+// import linkobject class
+require_once CLASSES_DIR.'linkobject.php';
+// create and output http object from linkobject class
+$http = new linkobject();
 // control http object output
 echo '<pre>';
 print_r($http);
@@ -45,23 +47,14 @@ echo SCRIPT_NAME.'<br />';
 echo HTTP_HOST.'<br />';
 echo '<hr />';
 // create http data pairs and set up into $http->vars array
-$http->set('kasutaja', 'Anna');
+$http->set('kasutaja', 'Rauno');
 $http->set('tund', 'php programmeerimisvahendid');
 // control $http->vars object output
 echo '<pre>';
 print_r($http->vars);
 echo '</pre>';
-//
-// linkobject class testing
-// import linkobject class file
-require_once CLASSES_DIR.'linkobject.php';
-// create linkobject type object
-$linkobject = new linkobject();
-// control linkobject output
-echo '<pre>';
-print_r($linkobject);
-echo '</pre>';
-$link = ''; //empty link for data pairs
+// control linkobject data pair creation
+$link = ''; // empty link for data pairs
 $http->addToLink($link, 'kasutaja', 'rauno');
 $http->addToLink($link, 'parool', 'qwerty');
 ?>
