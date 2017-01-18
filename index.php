@@ -54,7 +54,6 @@ echo '<pre>';
 print_r($http->vars);
 echo '</pre>';
 // control linkobject data pair creation
-$link = ''; // empty link for data pairs
-$http->addToLink($link, 'kasutaja', 'rauno');
-$http->addToLink($link, 'parool', 'qwerty');
+$link = $http->getLink(array('kasutaja'=>'Rauno','parool'=>'qwerty')); // empty link for data pairs
+echo $link;
 ?>

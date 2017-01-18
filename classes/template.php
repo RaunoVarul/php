@@ -16,6 +16,7 @@ class template
     // class variables
     var $file = ''; // template file name
     var $content = false; // template content - now is empty
+    var $vars = array(); //table for real values of html template output.
     // class methods
     function loadFile(){
         $f = $this->file; // use file name variable

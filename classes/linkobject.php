@@ -5,6 +5,11 @@
  * Date: 1/18/2017
  * Time: 9:12
  */
+// useful function for this class
+function fixUrl($val)
+{
+    return urlencode($val);
+}
 // only for testing
 // require http
 require_once 'http.php';
@@ -32,5 +37,20 @@ class linkobject extends http
         $link = $link.fixUrl($name).$this->eq.fixUrl($val);
         echo $link.'<br />';
     }//addToLink end
+
+    function getLink($add = array()){
+        $link = '';
+        foreach ($add as $name => $val){
+            $this->addToLink($link, $name, $val);
+        }
+        // control, is link not empty - pairs is created
+        if($link != ''){
+            $link = $this->baseUrl.'?'.$link; // http://IP/path_to_script.php?name=value
+        } else {
+            $link = $this->baseUrl;
+        }
+        return $link; // return created link to base program
+    }// getLink
+
 }//class end
 ?>
