@@ -53,7 +53,11 @@ $http->set('tund', 'php programmeerimisvahendid');
 echo '<pre>';
 print_r($http->vars);
 echo '</pre>';
-// control linkobject data pair creation
-$link = $http->getLink(array('kasutaja'=>'rauno'));
-echo $link;
+// control link creation
+$link = $http->getLink(array('kasutaja'=>'anna', 'parool'=>'qwerty'));
+echo $link.'<br />';
+
+// control menu
+// import menu file
+require_once 'menu.php';
 ?>
