@@ -16,8 +16,13 @@ class template
     // class variables
     var $file = ''; // template file name
     var $content = false; // template content - now is empty
-    var $vars = array(); //table for real values of html template output.
+    var $vars = array(); // table for real values of html template output
     // class methods
+    // construct
+    function __construct($f){
+        $this->file = $f;
+        $this->loadFile();
+    }// construct
     function loadFile(){
         $f = $this->file; // use file name variable
         // if some problem with tmpl directory
@@ -42,13 +47,11 @@ class template
         // if html template files are in inner directories
         // represented as dir.file
         $f = TMPL_DIR.str_replace('.', '/', $this->file).'.html';
-
         // allow to read inner file content
         if(file_exists($f) and is_file($f) and is_readable($f)){
             $this->readFile($f);
         }
-
-            // if some problems
+        // if some problems
         if($this->content === false){
             echo 'Ei saanud lugeda faili '.$this->file.'.<br/>';
             exit;
@@ -57,25 +60,21 @@ class template
     function readFile($f){
         $this->content = file_get_contents($f);
     }// readFile
-
     // set up html template elements and their real values
     // $name - template element name
     // $val - real value for template element
     function set($name, $val){
-        $this ->vars[$name]=$val;
-    }//set
-
-    //add to html template another real values
+        $this->vars[$name] = $val;
+    }// set
+    // add to html template another real values
     function add($name, $val){
         if(!isset($this->vars[$name])){
             $this->set($name, $val);
+        } else {
+            // $this->vars[$name] = $this->vars[$name].$val;
+            $this->vars[$name] .= $val;
         }
-        else{
-            // $this->vars[$name] = $this->vars[$name].$val
-            $this->vars[$name] .=$val;
-        }
-    }
-
+    }// add
     // parse template content and replace template table names by
     // template table real values
     function parse(){

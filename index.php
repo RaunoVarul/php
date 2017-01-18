@@ -9,7 +9,8 @@
 define('CLASSES_DIR', 'classes/'); // classes path
 define('TMPL_DIR', 'tmpl/'); // templates path
 define('STYLE_DIR', 'css/'); // styles path
-defin('ACTS_DIR', 'acts/'); // acts path
+define('ACTS_DIR', 'acts/'); // acts path
+define('DEFAULT_ACT', 'default'); // default act file name
 require_once CLASSES_DIR.'template.php';
 // and use it
 // create an template object,
@@ -63,11 +64,11 @@ $link = $http->getLink(array('kasutaja'=>'anna', 'parool'=>'qwerty'));
 // control http output
 //echo '<pre>';
 //print_r($http);
-//echo'</pre>';
+//echo '</pre>';
 //// control element value by name
 //echo $http->get('act');
 //
-//control actions
+// control actions
 // import act file
 require_once 'act.php';
 ?>
