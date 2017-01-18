@@ -54,7 +54,7 @@ echo '<pre>';
 print_r($http->vars);
 echo '</pre>';
 // control link creation
-$link = $http->getLink(array('kasutaja'=>'anna', 'parool'=>'qwerty'));
+$link = $http->getLink(array('kasutaja'=>'rauno', 'parool'=>'qwerty'));
 echo $link.'<br />';
 
 // control menu
