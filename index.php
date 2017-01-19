@@ -5,6 +5,8 @@
  * Date: 1/12/2017
  * Time: 13:17
  */
+//import configuration
+require_once 'conf.php';
 // create an template object,
 // set up the file name for template
 // load template file content
@@ -26,5 +28,12 @@ echo $tmpl->parse();
 // control actions
 // import act file
 require_once 'act.php';
+//control database object
+//create connection to database
+$sql = 'SELECT NOW;';
+$res = $db->query($sql);
+echo '<pre>';
+print_r($res);
+echo '</pre>';
 
 ?>

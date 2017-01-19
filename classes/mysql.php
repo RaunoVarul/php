@@ -31,6 +31,29 @@ class mysql
             echo 'Probleem andmebaasi ühendusega <br />';
             exit;
         }
+
+        function query($sql){
+            $res = mysqli_query($this->conn, $sql);//sql query
+            if($res === FALSE){
+                echo 'Viga päringus <b>'.$sql.'</b><br />';
+                echo mysqli_error($this->conn).'<br />';
+                exit;
+            }
+            return $res;
+        }// query
+
+        // query with data result
+        function getArray($sql){
+            $res = $this->query($sql);
+            $data = array();
+            while($record = mysqli_fetch_assoc($res)){
+                $data[] = $record;
+            }
+            if(count($data) == 0){
+                return false;
+            }
+            return $data;
+        }// getArray
     }
 
 }
