@@ -30,7 +30,7 @@ echo $tmpl->parse();
 require_once 'act.php';
 //control database object
 //create connection to database
-$sql = 'SELECT NOW;';
+$sql = 'SELECT NOW();';
 $res = $db->query($sql);
 echo '<pre>';
 print_r($res);

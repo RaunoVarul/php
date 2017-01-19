@@ -23,15 +23,17 @@ class mysql
         $this->user = $u;
         $this->pass = $p;
         $this->dbname = $dn;
+        $this->connect();
     }
 
-    function connect(){
+    function connect()
+    {
         $this->conn = mysqli_connect($this->host, $this->user, $this->pass, $this->dbname);
-        if(!$this->conn){
+        if (!$this->conn) {
             echo 'Probleem andmebaasi ühendusega <br />';
             exit;
         }
-
+    }
         function query($sql){
             $res = mysqli_query($this->conn, $sql);//sql query
             if($res === FALSE){
@@ -54,6 +56,6 @@ class mysql
             }
             return $data;
         }// getArray
-    }
 
 }
+?>
