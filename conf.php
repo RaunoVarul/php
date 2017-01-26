@@ -15,6 +15,7 @@ define('DEFAULT_ACT', 'default'); // default act file name
 require_once CLASSES_DIR.'template.php'; // import template class
 require_once CLASSES_DIR.'http.php'; // import http class
 require_once CLASSES_DIR.'linkobject.php'; // import linkobject class
+require_once CLASSES_DIR.'session.php'; // import session class
 
 require_once CLASSES_DIR.'mysql.php'; //import mysql class
 
@@ -24,4 +25,6 @@ $http = new linkobject();
 
 //create database obbject
 $db = new mysql(DBHOST, DBUSER, DBPASS, DBNAME);
+// create session object
+$sess = new session($http,$db);
 ?>
