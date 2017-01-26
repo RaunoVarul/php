@@ -11,14 +11,15 @@ define('CLASSES_DIR', 'classes/'); // classes path
 define('TMPL_DIR', 'tmpl/'); // templates path
 define('STYLE_DIR', 'css/'); // styles path
 define('ACTS_DIR', 'acts/'); // acts path
+define('LIB_DIR', 'lib/');
 define('DEFAULT_ACT', 'default'); // default act file name
+// import useful functions
+require_once LIB_DIR.'utils.php';
 require_once CLASSES_DIR.'template.php'; // import template class
 require_once CLASSES_DIR.'http.php'; // import http class
 require_once CLASSES_DIR.'linkobject.php'; // import linkobject class
 require_once CLASSES_DIR.'session.php'; // import session class
-
 require_once CLASSES_DIR.'mysql.php'; //import mysql class
-
 require_once 'db_conf.php';
 // create and output http object from linkobject class
 $http = new linkobject();

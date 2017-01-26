@@ -23,5 +23,29 @@ class session
         $this->db= &$db;
         $this->sid = $http->get('sid');
     }// construct end
+
+    function createSession($user = false){
+        // anonymous session
+        if($user==false){
+          $user= array(
+              'user_id'=>0,
+              'role_id'=>0,
+              'username'=>'Anonymous'
+          );
+        }
+        // create session id number
+        $sid = md5(uniqid(time().mt_rand(1,1000),true));
+        //insert data to database
+        $sql = 'INSERT INTO session SET'.
+            'sid='.fixDb($sid).','.
+            'user_id='.fixDb($user['user_id']).','.
+            'user_data='.fixDb(serialize($user)).','.
+            'login_ip='.fixDb(REMOTE_ADDR).','.
+            'created=now()';
+        $this->db->query($sql);
+        // setup session number
+        $this->sid = $sid;
+        $this->http->set('sid', $sid);
+    }//createSession
 }// class end
 ?>
