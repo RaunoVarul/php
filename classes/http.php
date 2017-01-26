@@ -6,7 +6,7 @@
  * Time: 8:58
  */
 // useful function
-function fizHtml($val){
+function fixHtml($val){
     return htmlentities($val);
 }//fix Html
 class http

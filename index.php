@@ -22,7 +22,9 @@ $tmpl->set('menu', $menu->parse());
 
 $tmpl->set('nav_bar', 'minu navigatsioon');
 $tmpl->set('lang_bar', 'minu keeleriba');
-$tmpl->set('content', 'minu sisu');
+//$tmpl->set('content', 'minu sisu');
+// allow to use default act
+$tmpl->set('content', $http->get('content'));
 // output template content set up with real values
 echo $tmpl->parse();
 // control actions
@@ -30,10 +32,26 @@ echo $tmpl->parse();
 require_once 'act.php';
 //control database object
 //create connection to database
-$sql = 'SELECT NOW();';
-$res = $db->query($sql);
+$page_id = $http->get('page_id');
+$sql = 'select * from content where' .
+    'content_id="'.$page_id.'"';
+$res = $db->getArray($sql);
+// if query is with result
+if($res !== false){
+    $page = $res[0];
+    $http->set('content', $page['content_id']);
+    $tmpl->set('content', $page['content']);
+}
+
+
 echo '<pre>';
-print_r($res);
-echo '</pre>';
+print_r($db_history);
+echo '<pre>';
+
+$db->showHistory();
+
+echo '<pre>';
+print_r($sess);
+echo '<pre>';
 
 ?>
