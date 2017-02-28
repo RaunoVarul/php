@@ -53,5 +53,12 @@ class http
         //if element with such name is not exist
         return false;
     }//get
+
+    //delete http data element
+    function del($name){
+        if(isset($this->vars[$name])){
+            unset($this->vars[$name]);
+        }
+    }// del
 }//http end
 ?>
