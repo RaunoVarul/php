@@ -34,7 +34,7 @@ if($res != false)
     {
         $link = $http->getLink(array('page_id'=>$page['content_id']));
         $item->set('link', $link);
-        $item->set('name', $page['title']);
+        $item->set('name', tr($page['title']));
         $menu->add('items', $item->parse());
     }
 }
@@ -44,7 +44,7 @@ if(USER_ID != ROLE_NONE)
 {
     $link = $http->getLink(array('act'=>'logout'));
     $item->set('link', $link);
-    $item->set('name', 'Logi v&auml;lja');
+    $item->set('name', tr('Logi v&auml;lja'));
     $menu->add('items', $item->parse());
 }
 
