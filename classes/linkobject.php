@@ -22,7 +22,7 @@ class linkobject extends http
     var $delim= '&amp;'; // & html tag name1 = value1
     var $eq= '='; // = for url
     // add if exists
-    var $aie = array('sid'=>'sid');
+    var $aie = array('lang_id','sid'=>'sid');
 
     function __construct(){
         parent ::__construct();
