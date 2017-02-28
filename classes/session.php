@@ -115,7 +115,7 @@ class session
         $this->vars[$name] = $val;
     }// set
     // get element_value according to the element_name
-    function get($name){
+    function get($name, $fix = true){
         // if element with such name is exists
         if(isset($this->vars[$name])){
             return $this->vars[$name];

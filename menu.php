@@ -16,16 +16,14 @@ $item = new template('menu.item');
 // add pairs of item temlate element names and real values
 
 //Menüü kuvamine
-$sql = 'SELECT content_id, title FROM content WHERE '.
-    'parent_id = 0 AND '.
-    'show_in_menu = 1 ';
+$sql = "SELECT content_id, title FROM content WHERE parent_id = '0' AND show_in_menu = '1'";
 
 //Mitte adminile näitame ainult lubatud sisu, kui hidden on 1 -nähtav ainult adminile
 if(ROLE_ID != ROLE_ADMIN)
 {
-    $sql.='AND is_hidden = 0 ';
+    $sql.=' AND is_hidden = 0';
 }
-$sql .= 'ORDER BY sort ASC';
+$sql .= ' ORDER BY sort ASC';
 $res = $db->getArray($sql);
 
 if($res != false)
