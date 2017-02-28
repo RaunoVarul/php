@@ -33,7 +33,7 @@ require_once 'menu.php'; // in this file is menu creation
 $tmpl->set('menu', $menu->parse());
 // import act file
 require_once 'act.php';
-
+$sess->flush();
 $tmpl->set('nav_bar', $sess->user_data['username']);
 /*
 $tmpl->set('nav_bar', 'minu navigatsioon');
