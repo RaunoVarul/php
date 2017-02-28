@@ -41,19 +41,7 @@ class http
     function set($name, $val){
         $this->vars[$name] = $val;
     }// set
-    function redirect($url = false)
-    {
-        global $sess;
-        $sess->flush();
 
-        if($url == false)
-        {
-            $url=$this->getLink();
-        }
-        $url = str_replace('&amp;', '&', $url);
-        header('Location: '.$url);
-        exit;
-    }
     //get element_value according to the element_name
     function get($name, $fix = true){
         //if element with such name exists
@@ -73,5 +61,19 @@ class http
             unset($this->vars[$name]);
         }
     }// del
+
+    function redirect($url = false)
+    {
+        global $sess;
+        $sess->flush();
+
+        if($url == false)
+        {
+            $url=$this->getLink();
+        }
+        $url = str_replace('&amp;', '&', $url);
+        header('Location: '.$url);
+        exit;
+    }
 }//http end
 ?>

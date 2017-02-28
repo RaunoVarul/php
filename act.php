@@ -22,7 +22,4 @@ if(file_exists($fn) and is_file($fn) and is_readable($fn)){
     // use default act
     require_once $fn;
 }
-
-$sess->deleteSession();
-$http->redirect();
 ?>

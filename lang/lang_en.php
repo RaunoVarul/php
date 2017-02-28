@@ -17,3 +17,4 @@ $_trans = array(
     'Logi sisse' => 'Login',
     'Viga sisselogimisel' => 'Login error'
 );
+?>

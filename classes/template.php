@@ -66,6 +66,10 @@ class template
     function set($name, $val){
         $this->vars[$name] = $val;
     }// set
+    function get($name){
+
+    }
+    // add another real values to html template
     // add to html template another real values
     function add($name, $val){
         if(!isset($this->vars[$name])){
