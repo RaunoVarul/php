@@ -12,6 +12,7 @@ define('TMPL_DIR', 'tmpl/'); // templates path
 define('STYLE_DIR', 'css/'); // styles path
 define('ACTS_DIR', 'acts/'); // acts path
 define('LIB_DIR', 'lib/'); // lib path
+define('LANG_DIR', 'lang/'); // lang path
 define('DEFAULT_ACT', 'default'); // default act file name
 // user roles
 define('ROLE_NONE', 0);
